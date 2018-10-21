@@ -126,7 +126,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
         dispatchGroup.notify(queue: .main) {
             self.mainTableView.reloadData()
         }
-        
+        print("github test, first time to push")
     }
 
 }
