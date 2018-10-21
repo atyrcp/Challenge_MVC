@@ -12,20 +12,21 @@ class RandomImageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var randomImageView: UIImageView!
     
-    func displayImage(from data: UIImage) {
-        randomImageView.image = data
+    @IBOutlet weak var phtographerNameLabel: UIButton!
+    
+    
+    func displayOutLook(from image: UIImage, from data: RandomImage) {
+        randomImageView.image = image
+        phtographerNameLabel.setTitle(data.user.name, for: .normal)
     }
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

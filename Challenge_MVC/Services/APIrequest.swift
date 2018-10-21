@@ -11,6 +11,9 @@ import UIKit
 
 class APIrequest {
     
+    private init() {}
+    static let shared = APIrequest()
+    
     typealias completionHandle = (_ gotcha: [RandomImage], _ hailno: Error?) -> Void
     
     static func createImage(from urlString: String) -> UIImage {
@@ -39,9 +42,7 @@ class APIrequest {
     }
     
     
-    static func askForImage(from requestURL: String, result: @escaping completionHandle){
-        
-        print("request begins")
+    func askForImage(from requestURL: String, result: @escaping completionHandle){
         
         guard let baseURL = URL(string: "https://api.unsplash.com/\(requestURL)") else {print("no such url"); return}
         var request = URLRequest(url: baseURL)
@@ -49,10 +50,8 @@ class APIrequest {
         
         let task = URLSession.shared.dataTask(with: request) { (sourceData, sourceResponse, SourceError) in
             guard let data = sourceData else {print(SourceError!); return}
-            
             let receiveDatas = try? JSONDecoder().decode([RandomImage].self, from: data)
             
-            print("receive: \(receiveDatas)")
             result(receiveDatas!, nil)
         }
         task.resume()

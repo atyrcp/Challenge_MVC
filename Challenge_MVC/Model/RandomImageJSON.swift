@@ -15,6 +15,7 @@ struct RandomImage: Decodable {
     let color: String
     let urls: URLs
     let links: Links
+    let user: User
     
     struct URLs: Decodable {
         let raw: String
@@ -28,4 +29,7 @@ struct RandomImage: Decodable {
         let download_location: String
     }
     
+    struct User: Decodable {
+        let name: String
+    }
 }
