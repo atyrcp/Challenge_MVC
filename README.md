@@ -15,3 +15,6 @@ Changes(updated: Oct,22,2018):
 5.rearranged the tableviewCell logic, controller should have no idea about how a cell displays, the cell should figure it out by itself<br/>
 6.viewcontroller is now dealing with tableview delegate and collectionview delegate at the same time<br/>
 7.instead of adding a black subview as background to display the image on click, its now passing to a new controller called FullScreenViewController and managed by a collectionview<br/>
+
+
+中文測試
